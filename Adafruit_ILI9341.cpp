@@ -49,9 +49,13 @@
 #include "Adafruit_ILI9341.h"
 #ifndef ARDUINO_STM32_FEATHER
 #include "pins_arduino.h"
-#ifndef RASPI
+#if defined(__has_include)
+#if __has_include("wiring_private.h")
 #include "wiring_private.h"
-#endif
+#endif  // __has_include("wiring_private.h")
+#else  //defined(__has_include)
+#include "wiring_private.h"
+#endif  //defined(__has_include)
 #endif
 #include <limits.h>
 
